@@ -1,0 +1,18 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+  overflow: hidden;
+}
+body{
+  min-height:100vh ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas{
+  border-radius: 10px;
+  border: 10px solid black;
+  border-bottom:70px solid black;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
