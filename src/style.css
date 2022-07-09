@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap");
 :root {
-  --first-color: #cb91f2;
-  --light-color: #f2f2f2;
-  --dark-color: #261426;
-  --aux1-color: #676273;
-  --aux2-color: #def2c9;
+  --first-color: #91D99C;
   --shadow: rgba(0, 0, 0, 0.63);
 }
 
@@ -133,7 +129,7 @@ option {
   margin: 15px;
   padding: 20px;
   position: absolute;
-  min-width: 20rem;
+  max-width: 22rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -149,7 +145,30 @@ option {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 input {
+  width: 100%;
+  height: 100%;
   margin-left: 10px;
+}
+
+.file-input{
+  position: relative;
+  background-color: var(--first-color);
+  color: #282c2c;
+  padding: .5rem;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.file-input:hover{
+  background-color: #bee7c4;
+}
+
+input[type='file']{
+  margin-left: inherit;
+  position:absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 .controls {
@@ -189,5 +208,27 @@ footer {
   canvas{
     max-width: 90vw;
     max-height: 90vw;
+  }
+  body{
+    padding-top: 5rem;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+  html{
+    min-width: auto;
+    overflow-y: scroll;
+  }
+
+  html::-webkit-scrollbar {
+    width: 0;
+  }
+  .menu{
+    min-width: 90vw;
+    position:initial;
+  }
+  footer{
+    position:initial;
   }
 }
