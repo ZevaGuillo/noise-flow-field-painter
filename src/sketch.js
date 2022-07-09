@@ -12,7 +12,6 @@ let noiseScale = 0.005;
 let strokeLength = 5;
 let imgIndex = -1;
 let frame;
-let Screen = 600;
 let isLoadImg = false;
 
 // load user image
@@ -44,19 +43,22 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(Screen, Screen);
+  createCanvas(windowWidth, windowHeight);
   changeImage();
   resizeImages();
 }
 
 function resizeImages(){
+  const canva = document.querySelector('canvas');
+  let screenW = parseInt(canva.style.width.replace('px',''));
+  let screenH = parseInt(canva.style.height.replace('px',''));
   if (isLoadImg) {
-    userImage.resize((userImage.width*Screen)/userImage.height, (userImage.height*Screen)/userImage.width);
+    userImage.resize(screenW, screenH);
     return;
   }
   for(let i = 0; i < renderedImages.length; i++){
     let imgs = renderedImages[i];
-    imgs.resize((imgs.width*Screen)/imgs.height, (imgs.height*Screen)/imgs.width);
+    imgs.resize(screenW, screenH);
   }
 }
 
@@ -142,3 +144,13 @@ function mousePressed() {
 function keyPressed() {
   saveCanvas("noiseFieldPainter", "png");
 }
+
+function windowResized() {
+  clear()
+  setup();
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+// function resizeScreen(){
+  
+// }
