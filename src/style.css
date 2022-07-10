@@ -32,7 +32,7 @@ canvas {
 }
 
 i:hover {
-  color: #d6abf3;
+  color: #bee7c4;
 }
 
 .header {
@@ -48,9 +48,6 @@ i:hover {
   align-items: center;
 }
 
-a {
-  text-decoration: none;
-}
 
 input[type="color"]:active {
   transition: transform 0.05s ease-in-out;
@@ -102,7 +99,7 @@ select {
   outline: 0;
   box-shadow: none;
   border: 0;
-  background-color: #cb91f2;
+  background-color: #bee7c4;
   flex: 1;
   padding: 0 0.5rem;
   color: #272727;

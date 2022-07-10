@@ -7,8 +7,8 @@
   <title>Noise flow field painter</title>
   <script src="./src/p5.js"></script>
   <!-- <script src="../addons/p5.sound.js"></script> -->
-  <script src="./src/utils.js" defer></script>
   <script src="./src/sketch.js" defer></script>
+  <script src="./src/view.js" defer></script>
   <script src="https://kit.fontawesome.com/b8200729a2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./src/style.css">
 </head>
@@ -20,24 +20,19 @@
     </div>
     
     
-    <label for="strokeWeight">
-      Stroke Weight
-      <input type="range" id="strokeWeight" value="0">
+    <label for="strokeLength">
+      Stroke Length 
+      <input type="range" id="strokeLength" value="30">
     </label>
 
-    <label for="angle">
-      Angle
-      <input type="range" id="angle" value="0">
-    </label>
-    
     <label for="drawLength">
       Draw Length
       <input type="range" id="drawLength" value="0">
     </label>
 
-    <label for="details">
-      Details
-      <input type="range" id="details" value="0">
+    <label for="noiseScale">
+      Noise Scale
+      <input type="range" id="noiseScale" value="0">
     </label>
 
     <div class="file-input">
@@ -60,10 +55,13 @@
 
 
   <footer>
-    <p>Copyright © 2022 ZevaGuillo</p>
-    <a href="https://github.com/ZevaGuillo">
+    <p>Copyright © 2022</p>
+    <a href="https://github.com/ZevaGuillo" target='_blank'>
+      ZevaGuillo
         <i class="fab fa-github" aria-hidden="true"></i>
     </a>
+    <p>Reference: </p>
+    <a href ='https://www.openprocessing.org/sketch/472966' target='_blank'><strong>Jason Labbe</strong></a>
   </footer>
 </body>
 

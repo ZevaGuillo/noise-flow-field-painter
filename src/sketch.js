@@ -1,15 +1,15 @@
-const strokeWeightInput = document.getElementById("strokeWeight");
-const angleInput = document.getElementById("angle");
+const strokeLengthInput = document.getElementById("strokeLength");
 const drawLengthInput = document.getElementById("drawLength");
-const details = document.getElementById("details");
+const noiseScaleInput = document.getElementById("noiseScale");
 const fileInput = document.getElementById("file-input");
 
 let userImage = null;
-let imgNamesDefect = ["img1.jpg", "img2.jpg"];
+let imgNamesDefect = ["img1.jpg", "img2.jpg","img3.jpg"];
 let renderedImages = [];
-let drawLength = 500;
-let noiseScale = 0.005;
-let strokeLength = 5;
+let drawLength = 400;
+let noiseScale = 0.0005;
+let strokeLength = 30;
+let angle = 180;
 let imgIndex = -1;
 let frame;
 let isLoadImg = false;
@@ -31,8 +31,31 @@ fileInput.addEventListener('change', function(){
   
 }, false);
 
+// canva evenet click 
+function clickCanva(){
+  document.querySelector('canvas').addEventListener('click',(e)=>{
+    if(e.target.id = 'defaultCanvas0'){
+      changeImage();
+    }
+  })
+}
 
-// TODO: poner listenres
+strokeLengthInput.addEventListener('input',(e)=>{
+  strokeLength =  map(parseInt(strokeLengthInput.value),0,100,5,40);
+  setup();
+})
+
+
+drawLengthInput.addEventListener('input',(e)=>{
+  drawLength =  map(parseInt(drawLengthInput.value),0,100,30,500);
+  setup();
+})
+
+noiseScaleInput.addEventListener('input',(e)=>{
+  noiseScale =  map(parseInt(noiseScaleInput.value),0,100,0.0005,0.005);
+  angle =  map(parseInt(noiseScaleInput.value),0,100,180,360);
+  setup();
+})
 
 // P5
 function preload() {
@@ -44,6 +67,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  clickCanva();
   changeImage();
   resizeImages();
 }
@@ -94,7 +118,7 @@ function  Pixelshapes(img) {
 
     // Rotate according to the noise field so there's a 'flow' to it.
     let n = noise(x * noiseScale, y * noiseScale);
-    rotate(radians(map(n, 0, 1, -360, 360)));
+    rotate(radians(map(n, 0, 1, (-1 * angle), angle)));
 
     let lengthVariation = random(0.75, 1.25);
     line(0, 0, strokeLength * lengthVariation, 0);
@@ -137,9 +161,6 @@ function changeImage() {
 	renderedImages[imgIndex].loadPixels();
 }
 
-function mousePressed() {
-  changeImage();
-}
 
 function keyPressed() {
   saveCanvas("noiseFieldPainter", "png");
