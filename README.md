@@ -12,4 +12,4 @@ An image is loaded but not displayed. At each iteration in `draw()`, the script 
 ![alt-text](https://github.com/ZevaGuillo/noise-flow-field-painter/blob/main/Screenshot-mobile.png)
 
 ## Reference
-Jason Labbe: [Noise flow field painter (Deconstructed)](https://openprocessing.org/sketch/803505) 
+Jason Labbe: [Noise flow field painter](https://openprocessing.org/sketch/472966) 
