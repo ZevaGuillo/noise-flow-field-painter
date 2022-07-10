@@ -162,10 +162,6 @@ function changeImage() {
 }
 
 
-function keyPressed() {
-  saveCanvas("noiseFieldPainter", "png");
-}
-
 function windowResized() {
   clear()
   setup();
